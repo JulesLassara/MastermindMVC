@@ -37,6 +37,11 @@ public class VueMastermind extends JPanel {
     private JButton[][] combinaisonsJoueurIHM;
 
     /**
+     * bouton valider
+     */
+    private JButton btnValider;
+
+    /**
      * nombre de couleurs possible dans la combinaison a trouver
      */
     private int nbCouleurs;
@@ -73,7 +78,6 @@ public class VueMastermind extends JPanel {
 
         this.initialiserGUI(controleur);
         this.activerCombinaison(0);
-
     }
 
     private void initialiserGUI(ControleurMastermind controleur) {
@@ -159,7 +163,11 @@ public class VueMastermind extends JPanel {
             reponse.add(jtf);
 
         gPanelReponse.add(reponse);
-        gPanelReponse.add(new JButton("Valider"));
+        this.btnValider = new JButton("Valider");
+        this.activerBtnValider(false);
+        this.btnValider.addActionListener(controleur);
+
+        gPanelReponse.add(this.btnValider);
 
         this.add(gPanelReponse, BorderLayout.SOUTH);
     }
@@ -220,6 +228,14 @@ public class VueMastermind extends JPanel {
     public void desactiverCombinaison(int i) {
         for(JButton jb : this.combinaisonsJoueurIHM[i])
             jb.setEnabled(false);
+    }
+
+    public JButton getBtnValider() {
+        return this.btnValider;
+    }
+
+    public void activerBtnValider(boolean b) {
+        this.btnValider.setEnabled(b);
     }
 
     public int getNbCouleurs() {
