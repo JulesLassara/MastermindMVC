@@ -1,4 +1,7 @@
-package fr.jlssr.mastermind;
+package fr.jlssr.mastermind.controleur;
+
+import fr.jlssr.mastermind.ModeleMastermind;
+import fr.jlssr.mastermind.VueMastermind;
 
 import javax.swing.*;
 import java.awt.*;

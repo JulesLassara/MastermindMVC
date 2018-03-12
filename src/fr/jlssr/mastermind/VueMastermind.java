@@ -1,6 +1,7 @@
 package fr.jlssr.mastermind;
 
-import javax.naming.ldap.Control;
+import fr.jlssr.mastermind.controleur.ControleurMastermind;
+
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
