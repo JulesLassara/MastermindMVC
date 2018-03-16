@@ -118,8 +118,6 @@ public class FenetreMastermind extends JFrame {
             fileOut = new FileOutputStream(nomFichier + ".save");
             objOut = new ObjectOutputStream(fileOut);
             objOut.writeObject(this.vue);
-
-            System.out.println("Done");
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
