@@ -1,6 +1,8 @@
 package fr.jlssr.mastermind;
 
-public class ModeleMastermind {
+import java.io.Serializable;
+
+public class ModeleMastermind implements Serializable {
 
     /**
      * combinaison ordinateur
@@ -103,11 +105,11 @@ public class ModeleMastermind {
      * @return la combinaison
      */
     public String toString() {
-        String c = "( ";
+        StringBuilder c = new StringBuilder("( ");
         for (int i = 0; i < TAILLE; i++) {
-            c = c + this.combinaison[i] + " ";
+            c.append(this.combinaison[i]).append(" ");
         }
-        c = c + ")";
-        return c;
+        c.append(")");
+        return c.toString();
     }
 }

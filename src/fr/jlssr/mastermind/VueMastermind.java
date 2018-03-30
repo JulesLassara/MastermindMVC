@@ -12,7 +12,7 @@ public class VueMastermind extends JPanel {
     /**
      * couleurs utilisees dans l'application
      */
-    public static final Color[] couleurs = {Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.CYAN, Color.MAGENTA};
+    private static final Color[] couleurs = {Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.CYAN, Color.MAGENTA};
     /**
      * tableau des champs contenant le nombre de couleurs bien
      * placees pour chaque combinaison.
@@ -56,18 +56,19 @@ public class VueMastermind extends JPanel {
      * nombre maximum d'essais pour trouver la combinaison de
      * couleurs
      */
-    public static final int NBMAX_COMBINAISONS = 10;
+    private static final int NBMAX_COMBINAISONS = 10;
 
     /**
      * ensemble des boutons contenant les couleurs de la palette
      */
     private JButton[] paletteIHM;
+
     private static long serialVersionUID;
 
     public VueMastermind() {
         this.nbCouleurs = 6;
         this.taille = 4;
-        Color colors[] = {Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.CYAN, Color.MAGENTA};
+        // Color colors[] = {Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.CYAN, Color.MAGENTA};
 
         this.bPIHM = new JTextField[VueMastermind.NBMAX_COMBINAISONS];
         this.combinaisonOrdiIHM = new JTextField[this.taille];
@@ -246,5 +247,4 @@ public class VueMastermind extends JPanel {
     public int getTaille() {
         return this.taille;
     }
-
 }

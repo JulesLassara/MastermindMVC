@@ -19,6 +19,7 @@ public class FenetreMastermind extends JFrame {
         this.setLayout(new GridLayout(1, 1));
         this.add(this.vue);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
         this.initMenu();
         this.pack();
         this.setVisible(true);
@@ -81,63 +82,34 @@ public class FenetreMastermind extends JFrame {
     public void restaurerVueMastermindFichier(String nomFichier) {
         VueMastermind vue = null;
 
-        FileInputStream fileIn = null;
-        ObjectInputStream objIn = null;
+        FileInputStream fileIn;
+        ObjectInputStream objIn;
 
         try {
             fileIn = new FileInputStream(nomFichier + ".save");
             objIn = new ObjectInputStream(fileIn);
             vue = (VueMastermind) objIn.readObject();
+            fileIn.close();
+            objIn.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            if (fileIn != null) {
-                try {
-                    fileIn.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if (objIn != null) {
-                try {
-                    objIn.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
+
         this.reloadVue(vue);
     }
 
     public void sauvegarderVueMastermind(String nomFichier) {
-        FileOutputStream fileOut = null;
-        ObjectOutputStream objOut = null;
+        FileOutputStream fileOut;
+        ObjectOutputStream objOut;
 
         try {
             fileOut = new FileOutputStream(nomFichier + ".save");
             objOut = new ObjectOutputStream(fileOut);
             objOut.writeObject(this.vue);
+            fileOut.close();
+            objOut.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-
-            if (fileOut != null) {
-                try {
-                    fileOut.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if (objOut != null) {
-                try {
-                    objOut.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
         }
     }
 

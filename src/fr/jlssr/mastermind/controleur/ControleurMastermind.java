@@ -7,9 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class ControleurMastermind implements ActionListener {
+public class ControleurMastermind implements ActionListener, Serializable {
 
     private VueMastermind vue;
     private ModeleMastermind modele;
@@ -73,11 +74,11 @@ public class ControleurMastermind implements ActionListener {
         }
     }
 
-    private enum Etat {
+    private enum Etat implements Serializable{
         DEBUT_COMBINAISON,
         CHOIX_COULEUR,
         CHOIX_POSITION,
-        FIN;
+        FIN
     }
 
     private void pickColor(JButton jb) {
