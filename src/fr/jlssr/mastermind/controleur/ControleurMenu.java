@@ -18,16 +18,23 @@ public class ControleurMenu implements ActionListener {
     public void actionPerformed(ActionEvent event) {
 
         JMenuItem jmi = (JMenuItem) event.getSource();
+        int reponse;
 
         switch(jmi.getText()) {
             case "Rejouer":
                 this.fenetre.creerNouvelleVueMastermind();
                 break;
             case "Sauvegarder":
-                this.fenetre.sauvegarderVueMastermind("active");
+                reponse = JOptionPane.showConfirmDialog(null, "Voulez-vous vraiment sauvegarder la partie ?");
+                if(reponse == JOptionPane.YES_OPTION) {
+                    this.fenetre.sauvegarderVueMastermind("active");
+                }
                 break;
             case "Restaurer":
-                this.fenetre.restaurerVueMastermindFichier("active");
+                reponse = JOptionPane.showConfirmDialog(null, "Voulez-vous vraiment restaurer la partie ?");
+                if(reponse == JOptionPane.YES_OPTION) {
+                    this.fenetre.restaurerVueMastermindFichier("active");
+                }
                 break;
             case "Quitter":
                 System.exit(JFrame.EXIT_ON_CLOSE);
